@@ -13,16 +13,16 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
     <div 
       className={`p-3 rounded-lg max-w-[80%] ${
         isUser 
-          ? 'bg-[var(--primary)]/10 ml-auto' 
-          : 'bg-[var(--bleu-ardoise)]/10'
+          ? 'bg-white ml-auto text-[var(--terracotta)]' 
+          : 'bg-white/20'
       }`}
     >
       <p className={`text-sm font-medium ${
-        isUser ? 'text-[var(--primary)]' : 'text-[var(--bleu-ardoise)]'
+        isUser ? 'text-[var(--terracotta)]' : 'text-white'
       }`}>
         {isUser ? 'Vous' : 'Gabin'}
       </p>
-      <p className="text-sm">
+      <p className={`text-sm ${isUser ? 'text-[var(--terracotta)]' : 'text-white'}`}>
         {message.text}
       </p>
     </div>

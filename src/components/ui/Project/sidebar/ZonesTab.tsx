@@ -10,54 +10,54 @@ const ZonesTab: React.FC<ZonesTabProps> = ({ project }) => {
   return (
     <div>
       <div className="mb-4">
-        <h3 className="font-semibold mb-2">Parcelle</h3>
-        <div className="bg-[var(--foreground)]/5 p-3 rounded-lg">
+        <h3 className="font-semibold mb-2 text-white/90">Parcelle</h3>
+        <div className="bg-white/10 p-3 rounded-lg">
           <p className="font-medium">{project.parcelle}</p>
-          <p className="text-sm text-[var(--foreground-muted)]">Surface: {project.surface} m²</p>
+          <p className="text-sm text-white/70">Surface: {project.surface} m²</p>
         </div>
       </div>
       
       <div className="mb-4">
-        <h3 className="font-semibold mb-2">Zone principale</h3>
-        <div className="bg-[var(--foreground)]/5 p-3 rounded-lg">
+        <h3 className="font-semibold mb-2 text-white/90">Zone principale</h3>
+        <div className="bg-white/10 p-3 rounded-lg">
           <div className="flex items-center">
             <div 
-              className="w-4 h-4 rounded-full mr-2" 
+              className="w-4 h-4 rounded-full mr-2 border border-white/30" 
               style={{ backgroundColor: 'var(--vert-olive)' }}
             ></div>
             <p className="font-medium">Zone {project.zone}</p>
           </div>
-          <p className="text-sm text-[var(--foreground-muted)] mt-1">
+          <p className="text-sm text-white/70 mt-1">
             Zone urbaine à vocation résidentielle
           </p>
         </div>
       </div>
       
       <div className="mb-4">
-        <h3 className="font-semibold mb-2">Prescriptions</h3>
+        <h3 className="font-semibold mb-2 text-white/90">Prescriptions</h3>
         <div className="space-y-2">
-          <div className="bg-[var(--foreground)]/5 p-3 rounded-lg">
+          <div className="bg-white/10 p-3 rounded-lg">
             <div className="flex items-center">
               <div 
-                className="w-4 h-4 rounded-full mr-2" 
+                className="w-4 h-4 rounded-full mr-2 border border-white/30" 
                 style={{ backgroundColor: 'var(--terracotta)' }}
               ></div>
               <p className="font-medium">Prescription architecturale</p>
             </div>
-            <p className="text-sm text-[var(--foreground-muted)] mt-1">
+            <p className="text-sm text-white/70 mt-1">
               Hauteur maximale: 12m
             </p>
           </div>
           
-          <div className="bg-[var(--foreground)]/5 p-3 rounded-lg">
+          <div className="bg-white/10 p-3 rounded-lg">
             <div className="flex items-center">
               <div 
-                className="w-4 h-4 rounded-full mr-2" 
+                className="w-4 h-4 rounded-full mr-2 border border-white/30" 
                 style={{ backgroundColor: 'var(--bleu-ardoise)' }}
               ></div>
               <p className="font-medium">Espace boisé classé</p>
             </div>
-            <p className="text-sm text-[var(--foreground-muted)] mt-1">
+            <p className="text-sm text-white/70 mt-1">
               Protection des arbres existants
             </p>
           </div>
@@ -65,16 +65,16 @@ const ZonesTab: React.FC<ZonesTabProps> = ({ project }) => {
       </div>
       
       <div>
-        <h3 className="font-semibold mb-2">Servitudes</h3>
-        <div className="bg-[var(--foreground)]/5 p-3 rounded-lg">
+        <h3 className="font-semibold mb-2 text-white/90">Servitudes</h3>
+        <div className="bg-white/10 p-3 rounded-lg">
           <div className="flex items-center">
             <div 
-              className="w-4 h-4 rounded-full mr-2" 
+              className="w-4 h-4 rounded-full mr-2 border border-white/30" 
               style={{ backgroundColor: 'var(--ocre)' }}
             ></div>
             <p className="font-medium">AC1 - Monument historique</p>
           </div>
-          <p className="text-sm text-[var(--foreground-muted)] mt-1">
+          <p className="text-sm text-white/70 mt-1">
             Périmètre de protection de 500m
           </p>
         </div>

@@ -13,40 +13,42 @@ const ProjectSidebarTabs: React.FC<ProjectSidebarTabsProps> = ({
   onTabChange
 }) => {
   return (
-    <div className="flex border-b border-[var(--border)]">
-      <button 
-        className={`flex-1 py-3 px-4 text-center font-medium ${
-          activeTab === 'zones' 
-            ? 'border-b-2 border-[var(--primary)] text-[var(--primary)]' 
-            : 'text-[var(--foreground-muted)]'
-        }`}
-        onClick={() => onTabChange('zones')}
-      >
-        <Layers size={16} className="inline mr-2" />
-        Zones
-      </button>
-      <button 
-        className={`flex-1 py-3 px-4 text-center font-medium ${
-          activeTab === 'documents' 
-            ? 'border-b-2 border-[var(--primary)] text-[var(--primary)]' 
-            : 'text-[var(--foreground-muted)]'
-        }`}
-        onClick={() => onTabChange('documents')}
-      >
-        <FileText size={16} className="inline mr-2" />
-        Documents
-      </button>
-      <button 
-        className={`flex-1 py-3 px-4 text-center font-medium ${
-          activeTab === 'conversation' 
-            ? 'border-b-2 border-[var(--primary)] text-[var(--primary)]' 
-            : 'text-[var(--foreground-muted)]'
-        }`}
-        onClick={() => onTabChange('conversation')}
-      >
-        <MessageSquare size={16} className="inline mr-2" />
-        Gabin
-      </button>
+    <div className="flex border-b border-white/20">
+      {(['zones', 'documents', 'conversation'] as ProjectTab[]).map((tab) => {
+        const isActive = activeTab === tab;
+        
+        // Définir l'icône en fonction de l'onglet
+        let Icon;
+        let label;
+        
+        switch(tab) {
+          case 'zones':
+            Icon = Layers;
+            label = 'Zones';
+            break;
+          case 'documents':
+            Icon = FileText;
+            label = 'Documents';
+            break;
+          case 'conversation':
+            Icon = MessageSquare;
+            label = 'Gabin';
+            break;
+        }
+        
+        return (
+          <button 
+            key={tab}
+            className={`flex-1 py-3 px-4 text-center font-medium transition-all duration-200 flex items-center justify-center ${
+              isActive ? 'bg-white text-[var(--terracotta)]' : 'text-white hover:bg-white/10'
+            }`}
+            onClick={() => onTabChange(tab)}
+          >
+            <Icon size={16} className="mr-2" />
+            {label}
+          </button>
+        );
+      })}
     </div>
   );
 };

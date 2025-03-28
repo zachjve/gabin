@@ -55,7 +55,7 @@ const ConversationTab: React.FC<ConversationTabProps> = ({ project }) => {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="flex-1 bg-[var(--foreground)]/5 rounded-lg p-4 mb-4 overflow-y-auto">
+      <div className="flex-1 bg-white/10 rounded-lg p-4 mb-4 overflow-y-auto">
         <div className="space-y-4">
           {messages.map((message, index) => (
             <MessageBubble key={index} message={message} />
@@ -67,13 +67,13 @@ const ConversationTab: React.FC<ConversationTabProps> = ({ project }) => {
         <input 
           type="text" 
           placeholder="Posez votre question à Gabin..." 
-          className="w-full pl-4 pr-12 py-3 rounded-lg border border-[var(--border)] bg-transparent focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
+          className="w-full pl-4 pr-12 py-3 rounded-lg border border-white/30 bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 text-white placeholder-white/50"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
         />
         <button 
           type="submit"
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--primary)]"
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white hover:text-white/80"
         >
           <MessageSquare size={20} />
         </button>

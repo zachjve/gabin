@@ -19,4 +19,4 @@ export function useTheme(): boolean {
   }, []);
 
   return isDarkTheme;
-}
+} 

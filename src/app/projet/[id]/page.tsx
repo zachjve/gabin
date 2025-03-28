@@ -65,39 +65,38 @@ export default function ProjectDetailPage() {
         {/* Carte en arrière-plan (toujours visible) */}
         <ProjectMap 
           project={project}
-          sidebarOpen={sidebarOpen}
-          onToggleSidebar={toggleSidebar}
-          className="absolute inset-0 z-0"
         />
         
         {sidebarOpen && (
-          <PanelGroup direction="horizontal" className="z-10 h-full w-full">
-            {/* Panneau de la sidebar */}
-            <Panel 
-              defaultSize={25} 
-              minSize={15} 
-              maxSize={50}
-            >
-              <ProjectSidebar
-                project={project}
-                isOpen={sidebarOpen}
-                activeTab={activeTab}
-                onClose={() => setSidebarOpen(false)}
-                onTabChange={setActiveTab}
-              />
-            </Panel>
-            
-            {/* Poignée de redimensionnement améliorée */}
-            <PanelResizeHandle className="group relative w-1 bg-transparent cursor-col-resize">
-              <div className="absolute inset-y-0 left-0 w-px bg-[var(--border)] group-hover:bg-[var(--primary)] group-data-[resize-handle-active]:bg-[var(--primary)] transition-colors" />
-              <div className="absolute inset-y-0 -left-1 w-3 opacity-0" />
-            </PanelResizeHandle>
-            
-            {/* Panneau vide pour la carte (nécessaire pour la structure de PanelGroup) */}
-            <Panel>
-              <div className="h-full w-full" />
-            </Panel>
-          </PanelGroup>
+          <div className="absolute inset-0 z-10 pointer-events-none">
+            <PanelGroup direction="horizontal" className="h-full w-full">
+              {/* Panneau de la sidebar avec pointer-events-auto pour permettre l'interaction */}
+              <Panel 
+                defaultSize={35} 
+                minSize={25} 
+                maxSize={80}
+                className="pointer-events-auto"
+              >
+                <ProjectSidebar
+                  project={project}
+                  isOpen={sidebarOpen}
+                  activeTab={activeTab}
+                  onClose={() => setSidebarOpen(false)}
+                  onTabChange={setActiveTab}
+                />
+              </Panel>
+              
+              {/* Poignée de redimensionnement améliorée */}
+              <PanelResizeHandle className="group relative w-1 bg-transparent cursor-col-resize pointer-events-auto">
+                <div className="absolute inset-y-0 -left-1 w-3 opacity-0" />
+              </PanelResizeHandle>
+              
+              {/* Panneau vide pour la carte */}
+              <Panel>
+                <div className="h-full w-full" />
+              </Panel>
+            </PanelGroup>
+          </div>
         )}
       </div>
     </div>
